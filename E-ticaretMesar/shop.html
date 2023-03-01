@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>KOLTUKLAR</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="shop.css">
+
+
+</head>
+<script type="text/javascript">
+	// VARIABLES
+const rangeInput = document.querySelector('input[type = "range"]');
+const imageList = document.querySelector(".image-list");
+const searchInput = document.querySelector('input[type="search"]');
+const btns = document.querySelectorAll(".view-options button");
+const photosCounter = document.querySelector(".toolbar .counter span");
+const imageListItems = document.querySelectorAll(".image-list li");
+const captions = document.querySelectorAll(".image-list figcaption p:first-child");
+const myArray = [];
+let counter = 1;
+const active = "active";
+const listView = "list-view";
+const gridView = "grid-view";
+const dNone = "d-none";
+
+// SET VIEW
+for (const btn of btns) {
+  btn.addEventListener("click", function() {
+    const parent = this.parentElement;
+    document.querySelector(".view-options .active").classList.remove(active);
+    parent.classList.add(active);
+    this.disabled = true;
+    document.querySelector('.view-options [class^="show-"]:not(.active) button').disabled = false;
+
+    if (parent.classList.contains("show-list")) {
+      parent.previousElementSibling.previousElementSibling.classList.add(dNone);
+      imageList.classList.remove(gridView);
+      imageList.classList.add(listView);
+    } else {
+      parent.previousElementSibling.classList.remove(dNone);
+      imageList.classList.remove(listView);
+      imageList.classList.add(gridView);
+    }
+  });
+}
+
+// SET THUMBNAIL VIEW - CHANGE CSS VARIABLE
+rangeInput.addEventListener("input", function() {
+  document.documentElement.style.setProperty("--minRangeValue",`${this.value}px`);
+});
+
+// SEARCH FUNCTIONALITY
+for (const caption of captions) {
+  myArray.push({
+    id: counter++,
+    text: caption.textContent
+  });
+}
+
+searchInput.addEventListener("keyup", keyupHandler);
+
+function keyupHandler() {
+  for (const item of imageListItems) {
+    item.classList.add(dNone);
+  }
+  const text = this.value;
+  const filteredArray = myArray.filter(el => el.text.includes(text));
+  if (filteredArray.length > 0) {
+    for (const el of filteredArray) {
+      document.querySelector(`.image-list li:nth-child(${el.id})`).classList.remove(dNone);
+    }
+  }
+  photosCounter.textContent = filteredArray.length;
+}
+
+
+</script>
+
+
+<body>
+
+	
+ <header class="header" style="margin-top:-50px;">
+		<a href="index.html" class="logo">MESAR</a>
+		<input class="menu-btn" type="checkbox" id="menu-btn" />
+		<label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+		<ul class="menu">
+			<li><a href="index.html">Anasayfa</a></li>
+			<li><a href="#">Ürünler</a></li>
+			<li><a href="aboutUs.html">Kampanyalar</a></li>
+			<li><a href="login.html">Üye Girişi</a></li>
+
+		</ul>
+	</header>
+
+	
+	
+
+	<div style="height:auto; width:auto;">
+		<div class="home-container">
+			<div class="wrap">
+				<div class="text-center">
+					<h1> Koltuklar</h1>
+			
+				</div>
+				
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<div class="container">
+		<section class="middle">
+			<div class="about-title">
+				<h2>Tüm Koltuklar</h2>
+			</div>
+</div>
+<div style="margin-left: 75%; margin-top:-23px ;position: absolute;"><img src="https://img.icons8.com/carbon-copy/30/000000/shopping-bag.png"/></div>
+<div style="margin-left: 69.7%; margin-top:-15px; position: absolute; color: #A6A6A6"><a href=" " style="text-decoration: none; :black;"><p>Shopping Bag</p></a></div>
+
+<!-- img list -->
+<section class="gallery">
+  <div class="container">
+    <div class="toolbar">
+      <div class="search-wrapper">
+        <input type="search" placeholder="Ara">
+        
+      </div>
+
+
+      </ul>
+    </div>
+    <ol class="image-list grid-view">
+      <li>
+        <figure>
+          <a href="ub.html"><img src="img/sofa1.png" alt=""></a>
+          <figcaption>
+            <p>STOCHOLM</p>
+            <p>3'lü deri kanepe </p>
+            <p>30.999₺ </p>
+          </figcaption>
+        </figure>
+      </li>
+
+      <li>
+        <figure>
+         <a href=""><img src="img/sofa2.png" alt=""></a>
+          <figcaption>
+            <p>VIMLE</p>
+            <p>3'lü kanepe ve uzanma koltuğu </p>
+            <p>17.299₺ </p>
+          </figcaption>
+        </figure>
+      </li>
+
+      <li>
+        <figure>
+         <a href=""><img src="img/sofa3.png" alt=""></a>
+          <figcaption>
+            <p>KIVIK</p>
+            <p>3'lü kanepe ve uzanma koltuğu </p>
+            <p>15.999₺ </p>
+          </figcaption>
+        </figure>
+      </li>
+      
+      <li>
+        <figure>
+        <a href=""><img src="img/sofa4.png" alt=""></a>
+          <figcaption>
+            <p>APPLARYD</p>
+            <p>3'lü deri kanepe uzanma koltuğu </p>
+            <p>23.999₺ </p>
+          </figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <a href=""> <img src="img/sofa5.png" alt=""></a>
+          <figcaption>
+            <p>JATTEBO</p>
+            <p>3'lü kanepe uzanma koltuğu </p>
+            <p>25.200₺ </p>
+          </figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <a href=""> <img src="img/sofa6.png" alt=""></a>
+          <figcaption>
+            <p>SÖDERHAMN</p>
+            <p>3'lü kanepe ve uzanma koltuğu </p>
+            <p>17.099₺ </p>
+          </figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <a href="">  <img src="img/sofa7.png" alt=""></a>
+          <figcaption>
+            <p>SÖDERHAMN</p>
+            <p>3'lü kanepe </p>
+            <p>16.499₺ </p>
+          </figcaption>
+        </figure>
+        </figure>
+      </li>
+      <li>
+        <figure>
+           <a href=""> <img src="img/sofa8.png" alt=""></a>
+          <figcaption>
+            <p>LANDSKRONA</p>
+            <p>3'lü deri kanepe </p>
+            <p>10.999₺ </p>
+          </figcaption>
+        </figure>
+        </figure>
+      </li>
+      <li>
+        <figure>
+           <a href=""> <img src="img/sofa9.png" alt=""></a>
+          <figcaption>
+            <p>EKTORP</p>
+            <p>3'lü deri kanepe </p>
+            <p>7.799₺ </p>
+          </figcaption>
+        </figure>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <a href=""> <img src="img/sofa10.png" alt=""></a>
+          <figcaption>
+            <p>LANDSKRONA</p>
+            <p>3'lü deri kanepe </p>
+            <p>15.999₺ </p>
+          </figcaption>
+        </figure>
+        </figure>
+      </li>
+      <li>
+        <figure>
+         <a href=""> <img src="img/sofa11.png" alt=""></a>
+          <figcaption>
+            <p>APPLARYD</p>
+            <p>3'lü deri kanepe </p>
+            <p>15.999₺ </p>
+          </figcaption>
+        </figure>
+        </figure>
+      </li>
+      <li>
+        <figure>
+           <a href=""> <img src="img/sofa12.png" alt=""></a>
+          <figcaption>
+            <p>LANGARYD</p>
+            <p>3'lü deri kanepe </p>
+            <p>12.499₺</p>
+          </figcaption>
+        </figure>
+        </figure>
+      </li>
+    </ol>
+  </div>
+</section>
+
+	<div class="pages" style="margin-left:50% ; ">
+			<a href="shop.html" target="_blank" style="text-decoration: none;">1</a>
+  		    <a href="" target="_blank" style="text-decoration: none;">2</a>
+  			<a href="" target="_blank" style="text-decoration: none;">3</a>
+  			<a href="" target="_blank" style="text-decoration: none;">4</a>
+	</div>
+
+<footer>
+
+  <div class="container">
+  
+    <small>Made with <span>❤</span> by <a href="" target="_blank" style="text-decoration: none;">Mesar</a>
+    </small>
+  </div>
+</footer>
+<!-- /imglist -->
+	<br><br><br><br>
+	<div style="height:auto; width:auto;"> 
+		<footer class="footer-distributed">
+	
+				<div class="footer-left">
+	
+					<h3>MESAR</h3>
+	
+					<p class="footer-links">
+						<a href="#" class="link-1">Anasayfa</a>
+						
+						<a href="#">Hakkımızda</a>
+					
+						<a href="#">Konumumuz</a>
+					
+						<a href="#">İletişim</a>
+						
+					</p>
+	
+					<p class="footer-company-name">MESAR © 2022</p>
+				</div>
+	
+				<div class="footer-center">
+	
+					<div>
+						<i class="bi bi-geo-fill"></i>
+						<p><span> Levent, Pınar maslak, Büyükdere Cd. <br> No: 106, 34398 </span> Sarıyer/İstanbul</p>
+					</div>
+	
+					<div>
+						<i class="bi bi-telephone"></i>
+						<p>(0212) 286 49 11</p>
+					</div>
+	
+					<div>
+						<i class="bi bi-envelope"></i>
+						<p><a href="mailto:support@company.com">info@mesar.com.tr</a></p>
+					</div>
+	
+				</div>
+	
+				<div class="footer-right">
+	
+					<p class="footer-company-about">
+						<span>Şirket Hakkında</span>
+						Mesar ile kampanyalı ev alışverişlerinizi yapmayı kaçırmayın.
+					</p>
+	
+					<div class="footer-icons">     
+						<a href="#"><i class="bi bi-instagram"></i>
+						<a href="#"><i class="bi bi-twitter"></i>	
+						<a href="#"><i class="bi bi-linkedin"></i>
+					</div>
+	
+				</div>
+	
+			</footer>
+	  </div>
+</body>
+
+</html>

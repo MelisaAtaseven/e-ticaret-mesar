@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <title>GİRİŞ YAP</title>
+
+</head>
+
+<body>
+
+
+    <div class="header">
+
+        <a href="index.html" class="logo">MESAR</a>
+        <ul class="menu">
+
+            <li><a href="index.html">Anasayfa</a></li>
+			<li><a href="#">Ürünler</a></li>
+			<li><a href="aboutUs.html">Kampanyalar</a></li>
+			<li><a href="login.html">Üye Girişi</a></li>
+        </ul>
+
+    </div>
+
+
+    <div class="main">
+        <div class="form-box">
+            <div class="button-box">
+                <div id="btn"></div>
+                <button stype="button" class="toggle-btn" onclick="login()">Giriş Yap</button>
+                <button stype="button" class="toggle-btn" onclick="register()">Kayıt Ol</button>
+            </div>
+            <div class="social-icons">
+                <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_xo8wvxxz.json" background="transparent" speed="1" loop autoplay></lottie-player>
+                <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_ashhgcgu.json" background="transparent" speed="1" loop autoplay></lottie-player>
+                <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_6HFXXE.json" background="transparent" speed="1" loop autoplay></lottie-player>
+                <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_0Cm1Y2.json" background="transparent" speed="1" loop autoplay></lottie-player>
+            </div>
+
+            <form id="Login" class="input-group">
+                <input type="text" class="input-field" placeholder="Enter Username" required>
+                <input type="password" class="input-field" placeholder="Enter Username" required>
+                <a href="#">Lost Your Password</a>
+                <button type="submit" class="submit-btn">Giriş Yap</button>
+            </form>
+            <form id="Register" class="input-group">
+                <input type="text" class="input-field" placeholder="Enter Username" required>
+                <input type="password" class="input-field" placeholder="Enter Username" required>
+                <input type="email" class="input-field" placeholder="Enter Email" required>
+                <a href="#">By registering, you agree to the Terms, Data Policy and Cookies Policy</a>
+                <button type="submit" class="submit-btn">Kayıt Ol</button>
+            </form>
+        </div>
+    </div>
+	  </div>
+    <script>
+        var x = document.getElementById("Login");
+        var z = document.getElementById("Register");
+        var y = document.getElementById("btn");
+
+        function register() {
+            x.style.left = "-300px";
+            z.style.left = "20px";
+            y.style.left = "110px";
+        }
+
+        function login() {
+            x.style.left = "20px";
+            z.style.left = "450px";
+            y.style.left = "0px";
+        }
+    </script>
+
+
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    
+<br><br><br><br>
+<div style="height:auto; width:auto;"> 
+        <footer class="footer-distributed">
+    
+                <div class="footer-left">
+    
+                    <h3>MESAR</h3>
+    
+                    <p class="footer-links">
+                        <a href="#" class="link-1">Anasayfa</a>
+                        
+                        <a href="#">Hakkımızda</a>
+                    
+                        <a href="#">Konumumuz</a>
+                    
+                        <a href="#">İletişim</a>
+                        
+                    </p>
+    
+                    <p class="footer-company-name">MESAR © 2022</p>
+                </div>
+    
+                <div class="footer-center">
+    
+                    <div>
+                        <i class="bi bi-geo-fill"></i>
+                        <p><span> Levent, Pınar maslak, Büyükdere Cd. <br> No: 106, 34398 </span> Sarıyer/İstanbul</p>
+                    </div>
+    
+                    <div>
+                        <i class="bi bi-telephone"></i>
+                        <p>(0212) 286 49 11</p>
+                    </div>
+    
+                    <div>
+                        <i class="bi bi-envelope"></i>
+                        <p><a href="mailto:support@company.com">info@mesar.com.tr</a></p>
+                    </div>
+    
+                </div>
+
+                <br><br>
+    
+                <div class="footer-right">
+    
+                    <p class="footer-company-about">
+                        <span>Şirket Hakkında</span>
+                        Mesar ile kampanyalı ev alışverişlerinizi yapmayı kaçırmayın.
+                    </p>
+    
+                    <div class="footer-icons">     
+                        <a href="#"><i class="bi bi-instagram"></i>
+                        <a href="#"><i class="bi bi-twitter"></i>   
+                        <a href="#"><i class="bi bi-linkedin"></i>
+                    </div>
+    
+                </div>
+    
+            </footer>
+      </div>
+   
+</body>
